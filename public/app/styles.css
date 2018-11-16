@@ -1,0 +1,6 @@
+/* body{
+    display: flex;
+} */
+.item-list{
+    justify-content: center;
+}
