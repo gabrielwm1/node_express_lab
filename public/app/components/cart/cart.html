@@ -1,0 +1,47 @@
+<button ng-click = "$ctrl.getAllItems();">Get Items</button>
+    <section class= "item-list" ng-class="{'on-form': $ctrl.formOn === true}">
+          
+              <section class= "item-column">
+                <h3>ID</h3>
+                
+                <p ng-repeat= "item in $ctrl.cart">{{ item.id }}</p>
+            
+              </section>
+              <section class= "item-column">
+
+                <h3>Product</h3>
+
+                <input ng-repeat= "item in $ctrl.cart" ng-blur="$ctrl.updateItem(item);" ng-model="item.product">
+                
+              </section>
+              <section class= "item-column">
+                
+                <h3>price</h3>
+                <input ng-repeat="item in $ctrl.cart" ng-blur="$ctrl.updateItem(item);" ng-model="item.price">
+
+              </section>
+              <section class = "item-column">
+                
+                <h3>quantity</h3>
+                <input ng-repeat="item in $ctrl.cart" ng-blur="$ctrl.updateItem(item);" ng-model="item.quantity">
+                    <!-- <i class="fas fa-trash-alt"></i> -->
+                    <!-- <i ng-click="$ctrl.removeFav($index)" class="fas fa-ban delete-event"></i> -->
+              
+              </section>
+              <section class = "delete-column">
+                <h3>delete</h3>
+                <p ng-repeat="item in $ctrl.cart track by $index">
+                     <i ng-click="$ctrl.removeItem(item.id)" class="fas fa-trash-alt"></i>
+                </p>
+              </section>
+              
+    </section>
+    <button ng-click= "$ctrl.newItemToAdd()">Add item</button>
+
+
+<form ng-show="$ctrl.showForm()" ng-submit="$ctrl.addItem($ctrl.item);">
+    <input type="text" ng-model="$ctrl.item.product">
+    <input type="text" ng-model="$ctrl.item.price">
+    <input type="text" ng-model="$ctrl.item.quantity">
+    <button>Add item</button>
+</form>

@@ -1,18 +1,13 @@
 "use strict";
 const displayCart ={
 
-    template:`<button ng-click = "$ctrl.getAllItems();">Get Items</button>
-              <section class= "item-list"
-            <ul>
-                  <li ng-repeat = "item in $ctrl.cart"> {{ item.id }}{{item.product}} {{item.price}} {{item.quantity}}></li>
-              </ul>
-              </section>
-    `,  
+    templateUrl: "app/components/cart/cart.html",
 
 
     controller:["CartService", function(CartService){
         const vm = this;
-
+        vm.formOn= false;
+        let newItem = false; 
         vm.getAllItems = () => {
             CartService.getAllItems().then((response) => {
                 console.log(response);
@@ -22,7 +17,30 @@ const displayCart ={
 
             })
 
-
+        }
+        vm.addItem = (item) => {
+            CartService.postItem(item).then((response) => {
+                vm.cart = response.data;
+                newItem = false;
+                vm.formOn = false;
+            })
+        }
+        vm.removeItem = (id) => {
+            CartService.deleteItem(id).then((response) => {
+                vm.cart = response.data;
+            })
+        }
+        vm.updateItem = (updatedItem) => {
+            CartService.updateItem(updatedItem).then((response) =>{
+                vm.cart = response.data;
+            })
+        }
+        vm.newItemToAdd = () => {
+            newItem = true;
+            vm.formOn = true;
+        }
+        vm.showForm = () => {
+            return newItem;
         }
 
     }
