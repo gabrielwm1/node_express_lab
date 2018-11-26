@@ -1,8 +1,24 @@
 /* body{
     display: flex;
 } */
+.items-button{
+    position: relative;
+    display: block;
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    left: 50%;
+    transform: translate(-50%);
+    width: 75%;
+
+
+}
+.id-column{
+    width: 8%;
+    display: inline-block;
+}
 .item-column{
-    width: 24%;
+    width: 25%;
     display: inline-block;
 }
 .item-list{
@@ -15,6 +31,13 @@ body{
     /* position: relative; */
     /* display: flex;
     justify-content: center; */
+}
+.add-button{
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    
 }
 input{
     width: 75%;
@@ -42,4 +65,8 @@ form{
 }
 .on-form{
     opacity: 0.2;
+}
+.form-input{
+    margin: 5px;
+    border-radius: 5px;
 }

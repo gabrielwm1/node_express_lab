@@ -1,7 +1,6 @@
-<button ng-click = "$ctrl.getAllItems();">Get Items</button>
+<button class="items-button" ng-click = "$ctrl.getAllItems();">Get Items</button>
     <section class= "item-list" ng-class="{'on-form': $ctrl.formOn === true}">
-          
-              <section class= "item-column">
+              <section class= "id-column">
                 <h3>ID</h3>
                 
                 <p ng-repeat= "item in $ctrl.cart">{{ item.id }}</p>
@@ -36,12 +35,12 @@
               </section>
               
     </section>
-    <button ng-click= "$ctrl.newItemToAdd()">Add item</button>
+    <button class= "items-button" ng-click= "$ctrl.newItemToAdd()">Add item</button>
 
 
 <form ng-show="$ctrl.showForm()" ng-submit="$ctrl.addItem($ctrl.item);">
-    <input type="text" ng-model="$ctrl.item.product">
-    <input type="text" ng-model="$ctrl.item.price">
-    <input type="text" ng-model="$ctrl.item.quantity">
-    <button>Add item</button>
+    <input class = "form-input" type="text" ng-model="$ctrl.item.product">
+    <input class = "form-input" type="text" ng-model="$ctrl.item.price">
+    <input class = "form-input "type="text" ng-model="$ctrl.item.quantity">
+    <button class ="add-button">Add item</button>
 </form>
